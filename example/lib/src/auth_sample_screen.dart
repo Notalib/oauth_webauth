@@ -134,6 +134,7 @@ class _AuthSampleScreenState extends State<AuthSampleScreen> {
                 '¿Está seguro que desea limpiar la caché?',
           },
           contentLocale: contentLocale,
+          useDefaultWebviewUserAgent: true,
         ));
     isLoading = false;
     if (result != null) {

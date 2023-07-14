@@ -65,7 +65,7 @@ class OAuthConfiguration extends BaseConfiguration {
   /// The scopes that the client is requesting access to.
   final List<String>? scopes;
 
-  /// /// Hint to the Authorization Server about the login identifier the End-User might use to log in.
+  /// Hint to the Authorization Server about the login identifier the End-User might use to log in.
   final String? loginHint;
 
   /// List of ASCII string values that specifies whether the Authorization Server prompts the End-User for re-authentication and consent.
@@ -105,6 +105,7 @@ class OAuthConfiguration extends BaseConfiguration {
     super.refreshBtnVisible,
     super.clearCacheBtnVisible,
     super.closeBtnVisible,
+    super.useDefaultWebviewUserAgent,
   }) : super(
           initialUrl: '',
           redirectUrls: const [],
@@ -140,6 +141,7 @@ class OAuthConfiguration extends BaseConfiguration {
     super.refreshBtnVisible,
     super.clearCacheBtnVisible,
     super.closeBtnVisible,
+    super.useDefaultWebviewUserAgent,
   });
 
   @override
@@ -173,6 +175,7 @@ class OAuthConfiguration extends BaseConfiguration {
     bool? refreshBtnVisible,
     bool? clearCacheBtnVisible,
     bool? closeBtnVisible,
+    bool? useDefaultWebviewUserAgent,
   }) =>
       OAuthConfiguration._(
         authorizationEndpointUrl:
@@ -206,5 +209,6 @@ class OAuthConfiguration extends BaseConfiguration {
         refreshBtnVisible: refreshBtnVisible ?? this.refreshBtnVisible,
         clearCacheBtnVisible: clearCacheBtnVisible ?? this.clearCacheBtnVisible,
         closeBtnVisible: closeBtnVisible ?? this.closeBtnVisible,
+        useDefaultWebviewUserAgent: useDefaultWebviewUserAgent ?? this.useDefaultWebviewUserAgent,
       );
 }

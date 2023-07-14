@@ -48,6 +48,9 @@ class BaseConfiguration {
   /// Not available for Web
   final Locale? contentLocale;
 
+  // Use default user-agent instead of hardcoding to 'Mozilla/5.0'
+  final bool useDefaultWebviewUserAgent;
+
   final bool goBackBtnVisible;
   final bool goForwardBtnVisible;
   final bool refreshBtnVisible;
@@ -71,12 +74,14 @@ class BaseConfiguration {
     bool? refreshBtnVisible,
     bool? clearCacheBtnVisible,
     bool? closeBtnVisible,
+    bool? useDefaultWebviewUserAgent,
   })  : headers = headers ?? const {},
         goBackBtnVisible = goBackBtnVisible ?? true,
         goForwardBtnVisible = goForwardBtnVisible ?? true,
         refreshBtnVisible = refreshBtnVisible ?? true,
         clearCacheBtnVisible = clearCacheBtnVisible ?? true,
-        closeBtnVisible = closeBtnVisible ?? true;
+        closeBtnVisible = closeBtnVisible ?? true,
+        useDefaultWebviewUserAgent = useDefaultWebviewUserAgent ?? false;
 
   String? get backButtonTooltip => textLocales?[backButtonTooltipKey];
   String? get forwardButtonTooltip => textLocales?[forwardButtonTooltipKey];
@@ -104,6 +109,7 @@ class BaseConfiguration {
     bool? refreshBtnVisible,
     bool? clearCacheBtnVisible,
     bool? closeBtnVisible,
+    bool? useDefaultWebviewUserAgent,
   }) =>
       BaseConfiguration(
         initialUrl: initialUrl ?? this.initialUrl,
@@ -123,5 +129,6 @@ class BaseConfiguration {
         refreshBtnVisible: refreshBtnVisible ?? this.refreshBtnVisible,
         clearCacheBtnVisible: clearCacheBtnVisible ?? this.clearCacheBtnVisible,
         closeBtnVisible: closeBtnVisible ?? this.closeBtnVisible,
+        useDefaultWebviewUserAgent: useDefaultWebviewUserAgent ?? this.useDefaultWebviewUserAgent,
       );
 }
